@@ -25,6 +25,10 @@ PetFoodPreference.init(
   {
     sequelize,
     modelName: "PetFoodPreference",
+    timestamps: false,
+    freezeTableName: true,
+    tableName: "pet_food_preferences",
+
   }
 );
 

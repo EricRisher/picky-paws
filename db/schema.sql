@@ -1,3 +1,4 @@
+-- SQLBook: Code
 -- Create a Database
 CREATE DATABASE IF NOT EXISTS pet_food_database;
 USE pet_food_database;

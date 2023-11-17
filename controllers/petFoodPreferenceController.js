@@ -11,3 +11,7 @@ const createPetFoodPreference = async (req, res) => {
         console.log(error);
     }
 };
+
+module.exports = {
+    createPetFoodPreference
+};

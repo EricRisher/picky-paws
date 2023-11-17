@@ -31,6 +31,9 @@ PetFood.init(
   {
     sequelize,
     modelName: "PetFood",
+    timestamps: false,
+    modelName: "pet_food",
+    freezeTableName: true,
   }
 );
 
