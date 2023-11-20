@@ -13,13 +13,13 @@ if (process.env.JAWSDB_URL) {
 } else {
   // Use local database connection
   sequelize = new Sequelize(
-    process.env.JAWSDB_URL || process.env.DB_NAME,
-    process.env.DB_USER || "wee846igd6opyobo",
-    process.env.DB_PW || "l8m4ab7qlcnibwf2",
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PW,
     {
-      host: process.env.JAWSDB_URL ? undefined : "localhost",
+      host: "localhost",
       dialect: "mysql",
-      port: process.env.JAWSDB_URL ? undefined : 3306,
+      port: 3306,
     }
   );
 }
