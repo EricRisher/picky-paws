@@ -4,7 +4,7 @@ INSERT INTO owner (first_name, last_name, email, owner_id) VALUES
     ('Jane', 'Smith', 'jane.smith@example.com');
 
 -- Insert sample data into the pets table
-INSERT INTO pets (pet_name, species, breed, birth_date, owner_id) VALUES
+INSERT INTO pets (pet_name, species, breed, birth_date) VALUES
     ('Buddy', 'Dog', 'Labrador Retriever', '2018-05-15'),
     ('Whiskers', 'Cat', 'Siamese', '2019-02-20');
 
