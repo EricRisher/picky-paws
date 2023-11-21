@@ -1,7 +1,7 @@
 -- SQLBook: Code
 -- Create a Database
-CREATE DATABASE IF NOT EXISTS pet_food_database;
-USE pet_food_database;
+CREATE DATABASE IF NOT EXISTS bd56pcqod4jd4z1b;
+USE bd56pcqod4jd4z1b;
 
 -- Create Tables
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS pets (
 );
 
 -- Table to store information about pet owners
-CREATE TABLE IF NOT EXISTS owner (
+CREATE TABLE IF NOT EXISTS Owners (
     owner_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -42,13 +42,3 @@ CREATE TABLE IF NOT EXISTS pet_food_preferences (
     FOREIGN KEY (pet_id) REFERENCES pets(pet_id),
     FOREIGN KEY (food_id) REFERENCES pet_food(food_id)
 );
-
--- View pets and their owners 
-SELECT pets.pet_id, pets.pet_name, pets.species, owner.first_name, owner.last_name
-FROM pets
-JOIN owner ON owner.pet_id = pets.pet_id;
-
--- View all owners and their pets
-SELECT * FROM owner;
-SELECT * FROM pets;
-SELECT * FROM pet_food;
