@@ -28,8 +28,10 @@ Pet.init(
 },
 {
     sequelize,
-    modelName: "Pet",
+    modelName: "pets",
     timestamps: false,
+    freezeTableName: true,
+    tableName: "pets",
 }
 );
 

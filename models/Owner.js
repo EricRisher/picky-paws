@@ -30,8 +30,10 @@ Owner.init(
 
   {
     sequelize,
-    modelName: "Owner",
+    modelName: "owners",
     timestamps: false,
+    freezeTableName: true,
+    tableName: "owners",
   }
 );
 
