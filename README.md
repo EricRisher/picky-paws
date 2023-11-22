@@ -14,9 +14,11 @@ dog and cat guardians in an effort to make improved decisions to put together a 
 Our homepage will introduce a few options, simple,clear and to the point making the app easy to navigate. A user ay create profile easy to help keep track of their posts, and otherother reviews saving them time by making everything easily accessible. Customer feedback is importatn to us, as it helps to understand logic behind the code, making it easier to improve.
 
 ## Installation
-<div>Run npm to perform installation. </div>
-<div>Use inquirer (package.json dependency).</div>
-<div>Use </div>
+<div>Handlebars. </div>
+<div>packagelock.json.</div>
+<div>package.json.</div>
+<div>sequelize. </div>
+<div>nodemon.</div>
 
 
 ## Screenshot
