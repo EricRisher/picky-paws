@@ -1,6 +1,6 @@
 // Import the necessary Firebase SDK modules
-import firebase from 'firebase/app';
-import 'firebase/auth';
+const firebase = require("firebase/app");
+require("firebase/auth");
 
 // Initialize Firebase with your project credentials
 const firebaseConfig = {

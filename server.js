@@ -22,12 +22,18 @@ app.use(express.static(path.join(__dirname, "views")));
 
 
 app.engine("handlebars", engine({
-layoutsDir: path.join(__dirname, "views", "Layout"),
+layoutsDir: path.join(__dirname, "views"),
 defaultLayout: "main",
 }));
 
 app.get("/", (req, res) => {
   res.render("main", { layout: "dashboard" });
+  console.log('rendering main.handlebars with layout dashboard');
+});
+
+app.get("/login", (req, res) => {
+  res.render("main", { layout: "login" });
+  console.log('rendering main.handlebars with layout login');
 });
 
 sequelize.sync({ force: false }).then(() => {
