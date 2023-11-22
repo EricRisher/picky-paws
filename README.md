@@ -19,7 +19,7 @@ Our homepage will introduce a few options, simple,clear and to the point making 
 <div>-Express Heroku.<div>
 <div>-Env. package.<div>
 <div>-Express Handlebars.<div>
-//<div>-Bcrypt package.<div>
+<div>-Bcrypt package.<div>
 <div>-Expression session.<div>
 <div>-Heroku.<div>
 <div>-Packagelock.json.</div>
