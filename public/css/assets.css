@@ -87,3 +87,8 @@ nav a:hover {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+
+.main-body{
+    min-height: 80vh;
+}
