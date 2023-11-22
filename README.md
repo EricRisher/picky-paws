@@ -1,12 +1,13 @@
-#Picky Paws
-By The undecided group
+##Picky Paws
+<div>By The undecided group</div>
+
 ## Purpose
 This is an app created from ( handlebars, etc....) to generate a variety of pet food reviews for our furry friends (cats and dogs) smoothly and efficiently.
 ## Table of contents
-<div> [Description](#description) </div>
-<div>[Installation](#installation)</div>
-<div>[Screenshot](#Screenshot)</div>
-<div>[Link to deployed app](#Link to deployed app)</div>
+[Description](#description) 
+[Installation](#installation)
+[Screenshot](#Screenshot)
+[Link to deployed app](#Link to deployed app)
 
 ## Description
 The motivation for this app was the desire to aid pet parents in deciding what may be the best nourishment for their own pets. Our team wanted to design an app that is clear and easy to navigate. Our app allows for seemless communication between 
