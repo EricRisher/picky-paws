@@ -5,6 +5,8 @@ const sequelize = require("./config/connection");
 const path = require("path");
 const cors = require("cors");
 const { engine } = require("express-handlebars");
+const petfood = require("./models/PetFood");
+const router = express.Router();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -34,6 +36,27 @@ app.use("/api", apiRoutes);
 
 // Use Home routes
 app.use("/", homeRoutes);
+
+router.get("/petfood", async (req, res) => {
+  try {
+    const searchTerm = req.query.searchTerm.toLowerCase();
+
+    // Use Sequelize to query the database for pet food with a similar name
+    const petfood = await PetFood.findAll({
+      where: {
+        // Assuming 'name' is the column you want to search on
+        name: {
+          [Op.like]: `%${searchTerm}%`,
+        },
+      },
+    });
+
+    res.json(petfood);
+  } catch (error) {
+    console.error("Error fetching pet food data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 // Sync sequelize models and then start the server
 sequelize.sync({ force: false }).then(() => {

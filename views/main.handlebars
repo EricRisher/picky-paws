@@ -1,21 +1,27 @@
 <!-- This is the Layout template -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{pageTitle}}</title>
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/assets.css">
+
 </head>
+
 <body>
 
     <main>
         <div class="search-container">
-            <h1>Discover and Review the Best Pet Foods</h1>
+            <h1>Discover and Review the Best Pet Foods!</h1>
             <div class="search-bar">
-                <input type="text" placeholder="Search for pet food...">
-                <button type="submit">Search</button>
+                <button id="searchButton" type="submit" >Search</button>
+                <script>
+    document.getElementById('searchButton').onclick = function () {
+        window.location.href = '/api/petfood';
+    };
+                    </script>
             </div>
         </div>
 
@@ -29,32 +35,36 @@
             <div class="suggestion">
                 <img src="https://assets.petco.com/petco/image/upload/f_auto,q_auto/1277910-center-1" alt="Food 3">
             </div>
+            <div class="suggestion">
+                <img src="https://s7d2.scene7.com/is/image/PetSmart/5309276?$CLEARjpg$" alt="Food 4">
+            </div>
+            <div class="suggestion">
+                <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRgk58xWEN575qPCUcNaXFDNe1BM8l3JmcCPrMAOIIKP9Zx8Egw2nLysYsKVEmoTknipmjKZ8d_w7XfdkexnSrJTljqqaCBuPqY9a6ynGvj&usqp=CAE" alt="Food 5">
+            </div>
+            <div class="suggestion">
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT9d5-4V5M9SGN_XRfAvGyOhGnspKwyxe4Jf5u3hrq_JmUJdYFrHW4IbavzM67e25-9Lwq1u9Ipbhbz6Dtxgyc2zmKm0Sj6HiSVx1sqXmC4R7iRRgOW5fSc2g&usqp=CAE" alt="Food 6">
+            </div>
+            <div class="suggestion">
+                <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSjunbyUcrw7FCgv1bzF7sRYDnvb_5lWovLB9Uz7B_svgyyhYJTsa8qTgzeRelq2uYQECvIjrjFNjvBt4aRKzmc3yB1GDVv-ayOj-OskSAUzaidcVWflUQH&usqp=CAE" alt="Food 7">
+            </div>
+            <div class="suggestion">
+                <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRc8KO1C5kPoBM3oWMEZXam6FwRLMulOYQ19rnSeyz92dycLLh5a6Xcw42TR5jKODtkqvIviKrDqnPJ3-A2mIql2pLGuz17v0P7F0_Y955fZB37OlZR47td&usqp=CAE" alt="Food 8">
+            </div>
         </div>
+
+        <!-- Add the search results container -->
+        <ul class="search-results" id="petfoodList">
+            <!-- Search results will be dynamically added here -->
+        </ul>
     </main>
 
-<footer>
-
-    
-    <div class="social-media">
-        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-    </div>
-    
-    <div class="contact-info">
-        <p>Email: contact@pickypaws.com</p>
-        <p>Phone: +1 (123) 456-7890</p>
-    </div>
-    
-    <div class="disclaimer">
-        <p>All reviews and opinions expressed on this site are based on personal
-             experiences and are subjective in nature. Always consult with a veterinarian before making any changes to your pet's
-              diet.</p>
-    </div>
-    
-</footer>
+    <footer>
+        <!-- Your existing footer content -->
+    </footer>
 
     <script src="/public/js/auth.js"></script>
     <script src="/public/js/main.js"></script>
+
 </body>
+
 </html>

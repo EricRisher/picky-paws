@@ -29,6 +29,16 @@ nav a:hover {
     text-decoration: none;
 }
 
+.search-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+        align-items: center;
+
+}
+
 #search-bar {
     text-align: center;
     padding: 20px;
@@ -42,20 +52,22 @@ nav a:hover {
     margin-right: 5px;
 }
 
-#search-bar button {
-    padding: 10px 20px;
-    border: none;
+#searchButton {
+    padding: 20px 40px;
     border-radius: 5px;
     background-color: rgb(91, 90, 179);
     color: white;
     cursor: pointer;
+    width: 150px;
+    font-size: 20px;
+    text-align: center; 
+    margin-top: 10px;
 }
-
 #search-bar button:hover {
     background-color: #555;
 }
 
-#suggestions {
+.suggestions {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
