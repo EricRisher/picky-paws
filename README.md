@@ -3,8 +3,8 @@ By The undecided group
 ## Purpose
 This is an app created from ( handlebars, etc....) to generate a variety of pet food reviews for our furry friends (cats and dogs) smoothly and efficiently.
 ## Table of contents
-- [Description](#description) 
-- [Installation](#installation)
+-[Description](#description) 
+-[Installation](#installation)
 -[Screenshot](#Screenshot)
 -[Link to deployed app](#Link to deployed app)
 
@@ -14,11 +14,12 @@ dog and cat guardians in an effort to make improved decisions to put together a 
 Our homepage will introduce a few options, simple,clear and to the point making the app easy to navigate. A user ay create profile easy to help keep track of their posts, and otherother reviews saving them time by making everything easily accessible. Customer feedback is importatn to us, as it helps to understand logic behind the code, making it easier to improve.
 
 ## Installation
-<div>Handlebars. </div>
-<div>packagelock.json.</div>
-<div>package.json.</div>
-<div>sequelize. </div>
-<div>nodemon.</div>
+<div>-Handlebars. </div>
+<div>-Heroku.<div>
+<div>-Packagelock.json.</div>
+<div>-Package.json.</div>
+<div>-Sequelize. </div>
+<div>-Nodemon.</div>
 
 
 ## Screenshot
