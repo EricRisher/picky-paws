@@ -24,4 +24,4 @@ Our homepage will introduce a few options, simple,clear and to the point making 
 ## Screenshot
 ![](./demoScreenshot.png)
 
-##Link to deployed app 
+## Link to deployed app 
