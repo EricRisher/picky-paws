@@ -1,26 +1,29 @@
-README
-#Picky Paws
-By The undecided group
+# Picky Paws
+<div>By The undecided group</div>
+
 ## Purpose
 This is an app created from ( handlebars, etc....) to generate a variety of pet food reviews for our furry friends (cats and dogs) smoothly and efficiently.
 ## Table of contents
-- [Description](#description) 
-- [Installation](#installation)
--[Screenshot](#Screenshot)
--[Link to deployed app](#Link to deployed app)
+[Description](#description) 
+[Installation](#installation)
+[Screenshot](#Screenshot)
+[Link to deployed app](#Link to deployed app)
 
 ## Description
-The motivation for this app was the desire to aid pet parents in deciding what may be the best nourishment for their own pets. Our team wanted to design an app that is clear and easy to navigate. Our app allows for seamless communication between 
+The motivation for this app was the desire to aid pet parents in deciding what may be the best nourishment for their own pets. Our team wanted to design an app that is clear and easy to navigate. Our app allows for seemless communication between 
 dog and cat guardians in an effort to make improved decisions to put together a good diet for their animals by giving them access to food reviews written by other pet parents, as well as a platform to leave their own feedback. 
-Homepage will introduce few options, simple/clear and to the point, easy to navigate with home, profile easy to keep track of your posts, section for reviews, saving the people time. Customer feedback helps to understand logic behind the code, making it easier to improve/help/contribute (put this in the “rules for improvement” part?)
+Our homepage will introduce a few options, simple,clear and to the point making the app easy to navigate. A user ay create profile easy to help keep track of their posts, and otherother reviews saving them time by making everything easily accessible. Customer feedback is importatn to us, as it helps to understand logic behind the code, making it easier to improve.
 
 ## Installation
-<div>Run npm to perform installation. </div>
-<div>Use inquirer (package.json dependency).</div>
-<div>Use </div>
+<div>-Handlebars. </div>
+<div>-Heroku.<div>
+<div>-Packagelock.json.</div>
+<div>-Package.json.</div>
+<div>-Sequelize. </div>
+<div>-Nodemon.</div>
 
 
 ## Screenshot
 ![](./demoScreenshot.png)
 
-##Link to deployed app 
+## Link to deployed app 
