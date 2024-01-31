@@ -1,0 +1,55 @@
+<form action="/api/pets" method="POST" id="addPetForm">
+    <label for="petName">Pet Name:</label>
+    <input type="text" id="petName" name="pet_name" required>
+
+    <label for="species">Species:</label>
+    <input type="text" id="species" name="species" required>
+
+    <label for="breed">Breed:</label>
+    <input type="text" id="breed" name="breed">
+
+    <label for="birthDate">Birth Date:</label>
+    <input type="date" id="birthDate" name="birth_date">
+
+    <button type="submit">Add Pet</button>
+</form>
+
+<div id="refresh-on-submit"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("addPetForm");
+        const refreshOnSubmit = document.getElementById("refresh-on-submit");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            // Serialize the form data to match content type
+            const formData = new URLSearchParams(new FormData(form)).toString();
+            try {
+                const response = await fetch("/api/pets", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded", // Set content type
+                    },
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    console.log("Pet added successfully");
+                    refreshOnSubmit.textContent = "Pet added successfully. Refreshing...";
+                    setTimeout(() => {
+                        window.location.reload(); // Reload the page after a short delay
+                    }, 1000); // Adjust the delay as needed
+                } else {
+                    const errorText = await response.text();
+                    console.error("Error adding pet:", errorText);
+                    refreshOnSubmit.textContent = "Error adding pet.";
+                }
+            } catch (error) {
+                console.error("Error during form submission:", error);
+                refreshOnSubmit.textContent = "Error adding pet.";
+            }
+        });
+    });
+</script>

@@ -1,31 +1,77 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Pet = require('../models/Pet');
-const Owner = require('../models/Owner');
+const Pet = require("../models/Pet");
+const Owner = require("../models/Owner");
 const PetFood = require("../models/PetFood");
 const PetFoodPreference = require("../models/PetFoodPreference");
-
+const { sequelize } = require("../config/connection");
 
 // Define API routes
 
-router.get('/pets', async (req, res) => {
-    try {
-        const pet = await Pet.findAll();
-           res.json(pet);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
+router.get("/pets", async (req, res) => {
+  try {
+    const pet = await Pet.findAll();
+    res.json(pet);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
-router.get('/owners', async (req, res) => {
-    try {
-        const owner = await Owner.findAll();
-           res.json(owner);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
+router.post("/pets", async (req, res) => {
+  try {
+    // Create a new pet
+    const newPet = await Pet.create({
+      pet_name: req.body.pet_name,
+      species: req.body.species,
+      breed: req.body.breed,
+      birth_date: req.body.birth_date,
+      owner_id: req.body.owner_id,
+    });
+    res.status(200).json(newPet);
+  } catch (error) {
+    if (error ) {
+      // Log validation errors
+      console.error("Validation Errors:", error);
+    } else {
+      console.error(error);
     }
+    res.status(500).send("Error adding pet");
+  }
+});
+
+router.get("/pets/:id", async (req, res) => {
+  try {
+    const pet = await Pet.findByPk(req.params.id);
+    res.json(pet);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+});
+
+router.delete("/pets/:id", async (req, res) => {
+  try {
+    const pet = await Pet.destroy({
+      where: {
+        pet_id: req.params.id,
+      },
+    });
+    res.status(200).json(pet);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json(error);
+  }
+});
+
+router.get("/owners", async (req, res) => {
+  try {
+    const owner = await Owner.findAll();
+    res.json(owner);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
 router.get("/petfood", async (req, res) => {
@@ -119,56 +165,44 @@ router.get("/petfood", async (req, res) => {
   }
 });
 
-router.get('/preference', async (req, res) => {
-    try {
-        const petfoodpreference = await PetFoodPreference.findAll();
-           res.json(petfoodpreference);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
+router.get("/preference", async (req, res) => {
+  try {
+    const petfoodpreference = await PetFoodPreference.findAll();
+    res.json(petfoodpreference);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
-
-
-router.post('/pets', async (req, res) => {
-    try {
-        const pet = await Pet.create(req.body);
-           res.json(pet);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
+router.post("/owners", async (req, res) => {
+  try {
+    const owner = await Owner.create(req.body);
+    res.json(owner);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
-router.post('/owners', async (req, res) => {
-    try {
-        const owner = await Owner.create(req.body);
-           res.json(owner);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
+router.post("/petfood", async (req, res) => {
+  try {
+    const petfood = await PetFood.create(req.body);
+    res.json(petfood);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
-router.post('/petfood', async (req, res) => {
-    try {
-        const petfood = await PetFood.create(req.body);
-           res.json(petfood);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
-});
-
-router.post('/preference', async (req, res) => {
-    try {
-        const petfoodpreference = await PetFoodPreference.create(req.body);
-           res.json(petfoodpreference);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
+router.post("/preference", async (req, res) => {
+  try {
+    const petfoodpreference = await PetFoodPreference.create(req.body);
+    res.json(petfoodpreference);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
 module.exports = router;

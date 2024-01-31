@@ -33,7 +33,7 @@ PetFood.init(
     timestamps: false,
     modelName: "pet_food",
     freezeTableName: true,
-    tableName: "pet_food",
+    tableName: "pet_foods",
   }
 );
 

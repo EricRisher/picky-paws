@@ -3,13 +3,19 @@
 <main class="login-container">
     <h1>Signup to Picky Paws</h1>
     <form action="/signup" method="POST" class="signup-form">
+        <label for="firstName"> First Name:</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter your information" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter your information" required>
+
         <label for="email">Email:</label>
-        <input type="text" id="signup" name="sign up" placeholder="Enter your information" required>
+        <input type="text" id="email" name="email" placeholder="Enter your information" required>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter your information" required>
 
-        <button type="submit">Login</button>
+        <button type="submit" class="btn">Sign Up!</button>
     </form>
 </main>
 

@@ -1,18 +1,96 @@
-<h1>This is the user/profile page</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<main class="user-container">
-    <h1>Picky Paws</h1>
-    <form action="/homepage" method="POST" class="login-form">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <!-- Add any additional head content here (e.g., CSS links) -->
+</head>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+<body>
+    <main class="profile-container">
+        <h1>Owner Profile</h1>
+        <section class="user-info user-pets">
+            <h2>Personal Information</h2>
+            <p><strong>First Name:</strong> {{owner.first_name}}</p>
+            <p><strong>Last Name:</strong> {{owner.last_name}}</p>
+            <p><strong>Email:</strong> {{owner.email}}</p>
 
-        <button type="submit">Login</button>
-    </form>
-    <p class="homepage-link"></p>
-</main>
+            <h2>Add Your Pet!</h2>
+            {{> addPet}}
+            <h2>Your Pets</h2>
+            <ul id="petList"> 
 
-<script src="/public/js/auth.js"></script>
-<script src="/public/js/main.js"></script>
+            <div id="refresh-pets-list"></div>
+        </section>
+    </main>
+
+    <script>
+        // Function to format a date as mm/dd/yyyy
+        function formatDate(dateString) {
+            const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
+
+        async function refreshPetList() {
+            const petListContainer = document.getElementById("petList");
+
+            try {
+                // Fetch the list of pets from the server
+                const response = await fetch("/api/pets");
+                const pets = await response.json();
+
+                // Clear the existing list
+                petListContainer.innerHTML = ""; // Clear the previous content
+
+                // Display each pet in the list
+                pets.forEach((pet) => {
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `
+                        <strong>Pet Name:</strong> ${pet.pet_name}
+                        <br>
+                        <strong>Species:</strong> ${pet.species}
+                        <br>
+                        <strong>Breed:</strong> ${pet.breed}
+                        <br>
+                        <strong>Birth Date:</strong> ${formatDate(pet.birth_date)} <!-- Format the birth date -->
+                        <button class="delete-pet" data-pet-id="${pet.pet_id}">Delete</button>
+                    `;
+                    petListContainer.appendChild(listItem);
+                });
+
+                // Add click event listeners to delete buttons
+                const deleteButtons = document.querySelectorAll(".delete-pet");
+                deleteButtons.forEach((button) => {
+                    button.addEventListener("click", async () => {
+                        const petId = button.getAttribute("data-pet-id");
+                        if (confirm("Are you sure you want to delete this pet?")) {
+                            try {
+                                // Send a DELETE request to the server to delete the pet
+                                const deleteResponse = await fetch(`/api/pets/${petId}`, {
+                                    method: "DELETE",
+                                });
+
+                                if (deleteResponse.ok) {
+                                    // Pet deleted successfully, refresh the pet list
+                                    refreshPetList();
+                                } else {
+                                    console.error("Error deleting pet:", deleteResponse.statusText);
+                                }
+                            } catch (error) {
+                                console.error("Error deleting pet:", error);
+                            }
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error("Error fetching pet list:", error);
+            }
+        }
+
+        // Initial refresh of pet list
+        refreshPetList();
+    </script>
+</body>
+
+</html>

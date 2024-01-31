@@ -2,10 +2,12 @@ const express = require("express");
 const apiRoutes = require("./routes/apiRoutes");
 const homeRoutes = require("./routes/homeRoutes");
 const sequelize = require("./config/connection");
+const session = require("express-session");
+const { Op } = require("sequelize");
 const path = require("path");
 const cors = require("cors");
 const { engine } = require("express-handlebars");
-const petfood = require("./models/PetFood");
+const PetFood = require("./models/PetFood");
 const router = express.Router();
 
 const app = express();
@@ -20,6 +22,15 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
+app.use(
+  session({
+    secret: "super duper secret key", 
+    resave: true,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 },
+  })
+);
 
 // Enable CORS
 app.use(cors());

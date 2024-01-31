@@ -2,8 +2,6 @@ require('dotenv').config();
 const Sequelize = require('sequelize');
 let sequelize;
 
-// create connection to our db
-
 if (process.env.JAWSDB_URL) {
   // If JawsDB is present (Heroku), use its URL
   sequelize = new Sequelize(process.env.JAWSDB_URL);
@@ -22,4 +20,3 @@ if (process.env.JAWSDB_URL) {
 }
 
 module.exports = sequelize;
-

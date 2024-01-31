@@ -13,17 +13,21 @@
     <header>
         <nav>
             <a href="/" id="logo">PICKY PAWS</a>
-            <a href="/login">Sign In</a>
+            {{#if loggedIn}}
+            <a href="/homepage">Profile</a>
+            <a href="/logout">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
             <a href="/signup">Sign Up</a>
-            <a href="/user">User</a>
-
+            <a href="/homepage">Profile</a>
+            {{/if}}
         </nav>
     </header>
+
     {{{body}}}
 
     <footer>
         <nav class="footer-nav">
-            <a href="/Home" </a>
                 <a href="/about">About Us</a>
                 <a href="/contact">Contact</a>
         </nav>

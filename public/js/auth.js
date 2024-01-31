@@ -4,7 +4,7 @@ require("firebase/auth");
 
 // Initialize Firebase with your project credentials
 const firebaseConfig = {
-  // Add the Firebase configuration here
+  
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -13,11 +13,14 @@ firebase.initializeApp(firebaseConfig);
 function handleRegistration(event) {
   event.preventDefault();
 
-  const nameInput = document.querySelector('#name');
+  const firstNameInput = document.querySelector('#firstName');
+  const lastNameInput = document.querySelector('#lastName');
+
   const emailInput = document.querySelector('#email');
   const passwordInput = document.querySelector('#password');
 
-  const name = nameInput.value;
+  const firstName = firstNameInput.value;
+  const lastName = lastNameInput.value;
   const email = emailInput.value;
   const password = passwordInput.value;
 
@@ -30,7 +33,8 @@ function handleRegistration(event) {
       // Additional registration logic or redirects can be added here
 
       // Clear the form inputs
-      nameInput.value = '';
+      firstNameInput.value = '';
+      lastNameInput.value = '';
       emailInput.value = '';
       passwordInput.value = '';
     })

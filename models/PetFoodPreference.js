@@ -13,10 +13,10 @@ PetFoodPreference.init(
     },
     pet_id: {
       type: DataTypes.INTEGER,
-        references: {
-            model: Pet,
-            key: "pet_id",
-        },
+      references: {
+        model: Pet,
+        key: "pet_id",
+      },
     },
     food_id: {
       type: DataTypes.INTEGER,
@@ -24,16 +24,11 @@ PetFoodPreference.init(
   },
   {
     sequelize,
-    modelName: "PetFoodPreference",
+    modelName: "pet_food_preference",
     timestamps: false,
     freezeTableName: true,
     tableName: "pet_food_preferences",
-
   }
 );
-
-PetFoodPreference.belongsTo(Pet, {
-    foreignKey: "pet_id"
-});
 
 module.exports = PetFoodPreference;
