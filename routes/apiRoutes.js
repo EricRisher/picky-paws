@@ -30,7 +30,7 @@ router.post("/pets", async (req, res) => {
     });
     res.status(200).json(newPet);
   } catch (error) {
-    if (error ) {
+    if (error) {
       // Log validation errors
       console.error("Validation Errors:", error);
     } else {
@@ -143,9 +143,20 @@ router.get("/petfood", async (req, res) => {
                         border: 0;
                         border-top: 1px solid #ddd;
                     }
+
+                    .btn {
+                        display: inline-block;
+                        padding: 10px 20px;
+                        margin: 10px 0;
+                        background-color: #007bff;
+                        color: #fff;
+                        text-decoration: none;
+                        border-radius: 5px;
+                    }
                 </style>
             </head>
             <body>
+                <a href='/' class='btn'>Back</a>
                 <h1>Pet Food List</h1>
                 <ul>
                     ${petfoodDetails.join("")}
